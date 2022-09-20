@@ -32,10 +32,14 @@ export const obtainOauthRequestToken = async ({
     consumerKey,
     consumerSecret
   });
-  const res = await fetch(`https://cors-anywhere.herokuapp.com/${apiUrl}`, {
+  const res = await fetch(`https://http-cors-proxy.p.rapidapi.com/${apiUrl}`, {
     method,
     headers: {
-      Authorization: `OAuth ${oauthSignature}`
+      Authorization: `OAuth ${oauthSignature}`,
+      origin: 'example.com',
+      'x-requested-with': 'example.com',
+      'X-RapidAPI-Key': '5e08c4ffc1msh094e1ac06718e0bp1670e5jsn646a2d197bfc',
+      'X-RapidAPI-Host': 'http-cors-proxy.p.rapidapi.com'
     }
   });
   const responseText = await res.text();
@@ -65,10 +69,14 @@ export const obtainOauthAccessToken = async ({
     oauthToken,
     oauthVerifier
   });
-  const res = await fetch(`https://cors-anywhere.herokuapp.com/${apiUrl}`, {
+  const res = await fetch(`https://http-cors-proxy.p.rapidapi.com/${apiUrl}`, {
     method,
     headers: {
-      Authorization: `OAuth ${oauthSignature}`
+      Authorization: `OAuth ${oauthSignature}`,
+      origin: 'example.com',
+      'x-requested-with': 'example.com',
+      'X-RapidAPI-Key': '5e08c4ffc1msh094e1ac06718e0bp1670e5jsn646a2d197bfc',
+      'X-RapidAPI-Host': 'http-cors-proxy.p.rapidapi.com'
     }
   });
   const responseText = await res.text();
